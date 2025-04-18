@@ -21,6 +21,8 @@ const buttonVariants = cva(
           "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
         link: "text-primary underline-offset-4 hover:underline",
         dropdown: "border border-zinc-200 bg-white hover:text-primary dark:border-zinc-800 dark:bg-zinc-950 dark:hover:text-zinc-50",
+        dialog: "justify-start items-start text-sm font-normal hover:bg-slate-100 w-full",
+        delete: "justify-start items-start text-sm font-normal hover:bg-red-500 hover:text-white w-full",
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",
@@ -36,7 +38,7 @@ const buttonVariants = cva(
   }
 )
 
-function Button({
+function  Button({
   className,
   variant,
   size,

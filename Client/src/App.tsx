@@ -2,9 +2,11 @@ import './App.css'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Sidebar from './components/sidebar';
 import Navbar from './components/navbar';
-import HomePage from './page/home';
-import { AddPage } from './page/add';
+import { HomePage } from './page/home';
+import { SavePage } from './page/save';
 import { ArchivePage } from './page/archive';
+import { Toaster } from 'react-hot-toast';
+
 
 
 const App = () =>
@@ -17,9 +19,10 @@ const App = () =>
         <div className="flex-1 flex flex-col">
           <Navbar />
           <div className="ps-1 pe-5 h-screen mt-5 mb-5">
+            <Toaster position="top-right" reverseOrder={ false } />
             <Routes>
               <Route path="/" element={ <HomePage /> } />
-              <Route path="/add" element={ <AddPage /> } />
+              <Route path="/save" element={ <SavePage /> } />
               <Route path="/archive" element={ <ArchivePage /> } />
             </Routes>
           </div>
