@@ -107,7 +107,7 @@ export const HomePage = () =>
         taskId: values.taskId,
         isComplete: values.isComplete
       };
-      await axios.put( "http://localhost:5000/task/completeTask", data );
+      await axios.put( "http://localhost:5000/api/task/completeTask", data );
       mutateOnGoing()
       mutateOverdue()
       mutateComplete()
@@ -143,7 +143,7 @@ export const HomePage = () =>
         taskId: values.taskId,
         isArchive: values.isArchive
       };
-      await axios.put( "http://localhost:5000/task/archiveTask", data );
+      await axios.put( "http://localhost:5000/api/task/archiveTask", data );
       mutateOnGoing()
       mutateOverdue()
       mutateComplete()
@@ -218,7 +218,8 @@ export const HomePage = () =>
       },
       cell: ( { row } ) =>
       {
-        const deadline = dayjs( row.original.deadline ).format( "YYYY-MM-DD" )
+        // const deadline = dayjs( row.original.deadline ).format( "YYYY-MM-DD" )
+        const deadline = dayjs( row.original.deadline ).format( "DD MMMM YYYY" )
         return (
           <div className="capitalize ms-3">{ deadline }</div>
         )
@@ -273,7 +274,7 @@ export const HomePage = () =>
         {
           try
           {
-            await axios.delete( `http://localhost:5000/task/${ taskId }` );
+            await axios.delete( `http://localhost:5000/api/task/${ taskId }` );
             toast.success( "Task berhasil dihapus!" );
             mutateOnGoing()
             mutateOverdue()
@@ -550,7 +551,7 @@ export const HomePage = () =>
         {
           try
           {
-            await axios.delete( `http://localhost:5000/task/${ taskId }` );
+            await axios.delete( `http://localhost:5000/api/task/${ taskId }` );
             toast.success( "Task berhasil dihapus!" );
             mutateOnGoing()
             mutateOverdue()
@@ -812,7 +813,7 @@ export const HomePage = () =>
         {
           try
           {
-            await axios.delete( `http://localhost:5000/task/${ taskId }` );
+            await axios.delete( `http://localhost:5000/api/task/${ taskId }` );
             toast.success( "Task berhasil dihapus!" );
             mutateOnGoing()
             mutateOverdue()
